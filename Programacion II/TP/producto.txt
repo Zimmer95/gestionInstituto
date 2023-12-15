@@ -1,3 +1,0 @@
-"asdasd","123","2500","300","Nike"
-"holahola","4123","123123","123","Nike"
-"sdasd","asd","asd","asd","asd"
