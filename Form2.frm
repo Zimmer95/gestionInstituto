@@ -2,38 +2,23 @@ VERSION 5.00
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Begin VB.Form frm_profesores 
    Caption         =   "PROFESORES"
-   ClientHeight    =   7890
-   ClientLeft      =   7920
-   ClientTop       =   2205
+   ClientHeight    =   8565
+   ClientLeft      =   5400
+   ClientTop       =   1965
    ClientWidth     =   8925
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   7890
+   ScaleHeight     =   8565
    ScaleWidth      =   8925
-   Begin VB.CommandButton Command7 
-      Caption         =   "<- Atras"
-      Height          =   375
-      Left            =   240
-      TabIndex        =   17
-      Top             =   6720
-      Width           =   855
-   End
-   Begin VB.TextBox Text5 
-      DataField       =   "Id_docente"
-      DataSource      =   "Adodc1"
-      Height          =   495
-      Left            =   3000
-      TabIndex        =   15
-      Top             =   1320
-      Width           =   4095
-   End
+   WindowState     =   2  'Maximized
    Begin MSAdodcLib.Adodc Adodc1 
-      Height          =   495
-      Left            =   2640
-      Top             =   8040
-      Width           =   3495
-      _ExtentX        =   6165
-      _ExtentY        =   873
+      Height          =   330
+      Left            =   3600
+      Top             =   8280
+      Visible         =   0   'False
+      Width           =   3255
+      _ExtentX        =   5741
+      _ExtentY        =   582
       ConnectMode     =   0
       CursorLocation  =   3
       IsolationLevel  =   -1
@@ -54,7 +39,7 @@ Begin VB.Form frm_profesores
       Orientation     =   0
       Enabled         =   -1
       Connect         =   $"Form2.frx":0000
-      OLEDBString     =   $"Form2.frx":0099
+      OLEDBString     =   $"Form2.frx":00A1
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""
@@ -72,6 +57,23 @@ Begin VB.Form frm_profesores
          Strikethrough   =   0   'False
       EndProperty
       _Version        =   393216
+   End
+   Begin VB.CommandButton Command7 
+      Caption         =   "<- Atras"
+      Height          =   375
+      Left            =   240
+      TabIndex        =   17
+      Top             =   6720
+      Width           =   855
+   End
+   Begin VB.TextBox Text5 
+      DataField       =   "Id_docente"
+      DataSource      =   "Adodc1"
+      Height          =   495
+      Left            =   3000
+      TabIndex        =   15
+      Top             =   1320
+      Width           =   4095
    End
    Begin VB.CommandButton Command1 
       Caption         =   "anterior"
@@ -212,10 +214,6 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
-Private Sub Adodc1_Click()
-
-End Sub
-
 Private Sub Command1_Click()
 Adodc1.Recordset.MovePrevious
 
@@ -268,3 +266,4 @@ Private Sub Command7_Click()
 frm_profesores.Hide
 frm_menu_principal.Show
 End Sub
+

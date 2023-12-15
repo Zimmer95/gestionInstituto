@@ -2,28 +2,23 @@ VERSION 5.00
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Begin VB.Form frm_alumnos 
    Caption         =   "ALUMNOS"
-   ClientHeight    =   7455
+   ClientHeight    =   8430
    ClientLeft      =   7920
    ClientTop       =   2550
    ClientWidth     =   9015
-   LinkTopic       =   "Form1"
+   LinkTopic       =   "frm_alumnos"
    MDIChild        =   -1  'True
-   ScaleHeight     =   7455
+   Moveable        =   0   'False
+   ScaleHeight     =   8430
    ScaleWidth      =   9015
-   Begin VB.CommandButton Command7 
-      Caption         =   "<- Atras"
-      Height          =   375
-      Left            =   240
-      TabIndex        =   17
-      Top             =   6360
-      Width           =   855
-   End
+   WindowState     =   2  'Maximized
    Begin MSAdodcLib.Adodc Adodc1 
       Height          =   375
-      Left            =   2880
-      Top             =   7560
-      Width           =   4695
-      _ExtentX        =   8281
+      Left            =   2760
+      Top             =   8160
+      Visible         =   0   'False
+      Width           =   4575
+      _ExtentX        =   8070
       _ExtentY        =   661
       ConnectMode     =   0
       CursorLocation  =   3
@@ -45,7 +40,7 @@ Begin VB.Form frm_alumnos
       Orientation     =   0
       Enabled         =   -1
       Connect         =   $"Form1.frx":0000
-      OLEDBString     =   $"Form1.frx":0099
+      OLEDBString     =   $"Form1.frx":00A1
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""
@@ -63,6 +58,14 @@ Begin VB.Form frm_alumnos
          Strikethrough   =   0   'False
       EndProperty
       _Version        =   393216
+   End
+   Begin VB.CommandButton Command7 
+      Caption         =   "<- Atras"
+      Height          =   375
+      Left            =   240
+      TabIndex        =   17
+      Top             =   6360
+      Width           =   855
    End
    Begin VB.TextBox Text5 
       DataField       =   "Id_alumno"
@@ -183,11 +186,20 @@ Begin VB.Form frm_alumnos
    End
    Begin VB.Label Label3 
       Caption         =   "ALUMNOS"
+      BeginProperty Font 
+         Name            =   "Century Gothic"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   375
       Left            =   4320
       TabIndex        =   4
       Top             =   120
-      Width           =   1095
+      Width           =   1815
    End
    Begin VB.Label Label2 
       Caption         =   "APELLIDO"
@@ -211,10 +223,6 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-
-Private Sub Adodc1_Click()
-
-End Sub
 
 Private Sub Command1_Click()
 Adodc1.Recordset.MovePrevious
@@ -265,3 +273,4 @@ Private Sub Command7_Click()
 frm_alumnos.Hide
 frm_menu_principal.Show
 End Sub
+

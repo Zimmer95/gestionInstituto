@@ -2,10 +2,10 @@ VERSION 5.00
 Begin VB.MDIForm MDIForm1 
    BackColor       =   &H80000002&
    Caption         =   "MDIForm1"
-   ClientHeight    =   11655
-   ClientLeft      =   5850
-   ClientTop       =   945
-   ClientWidth     =   13455
+   ClientHeight    =   9105
+   ClientLeft      =   3495
+   ClientTop       =   1185
+   ClientWidth     =   12915
    LinkTopic       =   "MDIForm1"
    Begin VB.Menu menu 
       Caption         =   "MENU"

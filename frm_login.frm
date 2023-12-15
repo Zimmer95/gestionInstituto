@@ -2,10 +2,11 @@ VERSION 5.00
 Begin VB.Form frm_login 
    Caption         =   "Login"
    ClientHeight    =   4950
-   ClientLeft      =   7920
-   ClientTop       =   4470
+   ClientLeft      =   5025
+   ClientTop       =   3120
    ClientWidth     =   7590
    LinkTopic       =   "Form1"
+   MDIChild        =   -1  'True
    ScaleHeight     =   4950
    ScaleWidth      =   7590
    Begin VB.CommandButton Command1 
