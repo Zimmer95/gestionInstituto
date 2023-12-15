@@ -13,8 +13,8 @@ Begin VB.Form frm_profesores
    WindowState     =   2  'Maximized
    Begin MSAdodcLib.Adodc Adodc1 
       Height          =   330
-      Left            =   3600
-      Top             =   8280
+      Left            =   5520
+      Top             =   8520
       Visible         =   0   'False
       Width           =   3255
       _ExtentX        =   5741
@@ -61,150 +61,159 @@ Begin VB.Form frm_profesores
    Begin VB.CommandButton Command7 
       Caption         =   "<- Atras"
       Height          =   375
-      Left            =   240
+      Left            =   2640
       TabIndex        =   17
-      Top             =   6720
+      Top             =   7200
       Width           =   855
    End
    Begin VB.TextBox Text5 
       DataField       =   "Id_docente"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3000
+      Left            =   4920
       TabIndex        =   15
-      Top             =   1320
+      Top             =   1560
       Width           =   4095
    End
    Begin VB.CommandButton Command1 
       Caption         =   "anterior"
       Height          =   615
-      Left            =   2520
+      Left            =   4440
       TabIndex        =   13
-      Top             =   5760
+      Top             =   6000
       Width           =   1695
    End
    Begin VB.CommandButton Command3 
       Caption         =   "ultimo"
       Height          =   615
-      Left            =   6120
+      Left            =   8040
       TabIndex        =   12
-      Top             =   5760
+      Top             =   6000
       Width           =   1815
    End
    Begin VB.CommandButton Command2 
       Caption         =   "siguiente"
       Height          =   615
-      Left            =   4320
+      Left            =   6240
       TabIndex        =   11
-      Top             =   5760
+      Top             =   6000
       Width           =   1695
    End
    Begin VB.CommandButton Command4 
       Caption         =   "nuevo"
       Height          =   615
-      Left            =   2520
+      Left            =   4440
       TabIndex        =   10
-      Top             =   6720
+      Top             =   6960
       Width           =   1695
    End
    Begin VB.CommandButton Command6 
       Caption         =   "guardar"
       Height          =   615
-      Left            =   6120
+      Left            =   8040
       TabIndex        =   9
-      Top             =   6720
+      Top             =   6960
       Width           =   1815
    End
    Begin VB.CommandButton Command5 
       Caption         =   "eliminar"
       Height          =   615
-      Left            =   4320
+      Left            =   6240
       TabIndex        =   8
-      Top             =   6720
+      Top             =   6960
       Width           =   1695
    End
    Begin VB.TextBox Text4 
       DataField       =   "materia"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3000
+      Left            =   4920
       TabIndex        =   7
-      Top             =   4440
+      Top             =   4680
       Width           =   4095
    End
    Begin VB.TextBox Text3 
       DataField       =   "matricula"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3000
+      Left            =   4920
       TabIndex        =   5
-      Top             =   3720
+      Top             =   3960
       Width           =   4095
    End
    Begin VB.TextBox Text2 
       DataField       =   "apellido"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3000
+      Left            =   4920
       TabIndex        =   4
-      Top             =   2880
+      Top             =   3120
       Width           =   4095
    End
    Begin VB.TextBox Text1 
       DataField       =   "nombre"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3000
+      Left            =   4920
       TabIndex        =   3
-      Top             =   2040
+      Top             =   2280
       Width           =   4095
    End
    Begin VB.Label Label6 
       Caption         =   "ID"
       Height          =   255
-      Left            =   1320
+      Left            =   3240
       TabIndex        =   16
-      Top             =   1440
+      Top             =   1680
       Width           =   615
    End
    Begin VB.Label Label5 
       Caption         =   " PROFESORES"
-      Height          =   255
-      Left            =   3360
+      BeginProperty Font 
+         Name            =   "Century Gothic"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   5400
       TabIndex        =   14
-      Top             =   240
-      Width           =   1215
+      Top             =   480
+      Width           =   2175
    End
    Begin VB.Label Label4 
       Caption         =   "MATERIA"
       Height          =   255
-      Left            =   1320
+      Left            =   3240
       TabIndex        =   6
-      Top             =   4680
+      Top             =   4920
       Width           =   1215
    End
    Begin VB.Label Label3 
       Caption         =   "MATRICULA"
       Height          =   375
-      Left            =   1320
+      Left            =   3240
       TabIndex        =   2
-      Top             =   3840
+      Top             =   4080
       Width           =   1215
    End
    Begin VB.Label Label2 
       Caption         =   "APELLIDO"
       Height          =   255
-      Left            =   1320
+      Left            =   3240
       TabIndex        =   1
-      Top             =   3000
+      Top             =   3240
       Width           =   1455
    End
    Begin VB.Label Label1 
       Caption         =   "NOMBRE"
       Height          =   375
-      Left            =   1320
+      Left            =   3240
       TabIndex        =   0
-      Top             =   2160
+      Top             =   2400
       Width           =   975
    End
 End
@@ -232,24 +241,36 @@ End If
 End Sub
 
 Private Sub Command3_Click()
-Adodc1.Recordset.MoveNext
-
-If Adodc1.Recordset.EOF Then
-    Adodc1.Recordset.MovePrevious
-End If
+Adodc1.Recordset.MoveLast
 End Sub
 
 Private Sub Command4_Click()
 Adodc1.Recordset.AddNew
+Text1.Enabled = True
+Text1.SetFocus
 End Sub
 
 Private Sub Command5_Click()
-Adodc1.Recordset.Update
-Form1.Text1.Refresh
+Adodc1.Recordset.Delete
+
+frm_alumnos.Text1.Refresh
+Text1.Enabled = False
+Text2.Enabled = False
+Text3.Enabled = False
+Text4.Enabled = False
+Text5.Enabled = False
+Adodc1.Recordset.MoveLast
 End Sub
 
 Private Sub Command6_Click()
-Adodc1.Recordset.Delete
+Adodc1.Recordset.Update
+frm_profesores.Text1.Refresh
+Text1.Enabled = False
+Text2.Enabled = False
+Text3.Enabled = False
+Text4.Enabled = False
+Text5.Enabled = False
+Adodc1.Recordset.MoveLast
 End Sub
 
 Private Sub mnu_alumnos_Click()
@@ -262,8 +283,44 @@ frm_profesores.Hide
 frm_carreras.Show
 End Sub
 
+
 Private Sub Command7_Click()
 frm_profesores.Hide
 frm_menu_principal.Show
 End Sub
 
+Private Sub Form_Load()
+Text1.Enabled = False
+Text2.Enabled = False
+Text3.Enabled = False
+Text4.Enabled = False
+Text5.Enabled = False
+End Sub
+
+
+Private Sub Text1_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 And Text1.Text <> Empty Then
+    Text2.Enabled = True
+    Text2.SetFocus
+End If
+End Sub
+
+Private Sub Text2_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 And Text2.Text <> Empty Then
+    Text3.Enabled = True
+    Text3.SetFocus
+End If
+End Sub
+
+Private Sub Text3_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 And Text3.Text <> Empty Then
+    Text4.Enabled = True
+    Text4.SetFocus
+End If
+End Sub
+
+Private Sub Text4_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 And Text4.Text <> Empty Then
+    Command6.SetFocus
+End If
+End Sub

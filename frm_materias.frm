@@ -13,8 +13,8 @@ Begin VB.Form frm_materias
    WindowState     =   2  'Maximized
    Begin MSAdodcLib.Adodc Adodc1 
       Height          =   375
-      Left            =   2640
-      Top             =   7800
+      Left            =   3840
+      Top             =   8160
       Visible         =   0   'False
       Width           =   4215
       _ExtentX        =   7435
@@ -62,132 +62,141 @@ Begin VB.Form frm_materias
       DataField       =   "materia"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3840
+      Left            =   5040
       TabIndex        =   10
-      Top             =   1680
+      Top             =   2040
       Width           =   4215
    End
    Begin VB.TextBox Text2 
       DataField       =   "cargaHoraria"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3840
+      Left            =   5040
       TabIndex        =   9
-      Top             =   2400
+      Top             =   2760
       Width           =   4215
    End
    Begin VB.TextBox Text3 
       DataField       =   "id_carrera"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3840
+      Left            =   5040
       TabIndex        =   8
-      Top             =   3120
+      Top             =   3480
       Width           =   4215
    End
    Begin VB.CommandButton Command1 
       Caption         =   "anterior"
       Height          =   615
-      Left            =   2880
+      Left            =   4080
       TabIndex        =   7
-      Top             =   4800
+      Top             =   5160
       Width           =   1695
    End
    Begin VB.CommandButton Command2 
       Caption         =   "ultimo"
       Height          =   615
-      Left            =   6480
+      Left            =   7680
       TabIndex        =   6
-      Top             =   4800
+      Top             =   5160
       Width           =   1815
    End
    Begin VB.CommandButton Command3 
       Caption         =   "siguiente"
       Height          =   615
-      Left            =   4680
+      Left            =   5880
       TabIndex        =   5
-      Top             =   4800
+      Top             =   5160
       Width           =   1695
    End
    Begin VB.CommandButton Command4 
       Caption         =   "nuevo"
       Height          =   615
-      Left            =   2880
+      Left            =   4080
       TabIndex        =   4
-      Top             =   5760
+      Top             =   6120
       Width           =   1695
    End
    Begin VB.CommandButton Command5 
       Caption         =   "guardar"
       Height          =   615
-      Left            =   6480
+      Left            =   7680
       TabIndex        =   3
-      Top             =   5760
+      Top             =   6120
       Width           =   1815
    End
    Begin VB.CommandButton Command6 
       Caption         =   "eliminar"
       Height          =   615
-      Left            =   4680
+      Left            =   5880
       TabIndex        =   2
-      Top             =   5760
+      Top             =   6120
       Width           =   1695
    End
    Begin VB.TextBox Text5 
       DataField       =   "Id_materia"
       DataSource      =   "Adodc1"
       Height          =   495
-      Left            =   3840
+      Left            =   5040
       TabIndex        =   1
-      Top             =   960
+      Top             =   1320
       Width           =   4215
    End
    Begin VB.CommandButton Command7 
       Caption         =   "<- Atras"
       Height          =   375
-      Left            =   600
+      Left            =   2040
       TabIndex        =   0
-      Top             =   6000
+      Top             =   6360
       Width           =   855
    End
    Begin VB.Label Label1 
       Caption         =   "MATERIA"
       Height          =   255
-      Left            =   1920
+      Left            =   3120
       TabIndex        =   15
-      Top             =   1800
+      Top             =   2160
       Width           =   1335
    End
    Begin VB.Label Label2 
       Caption         =   "CARGA HORARIA"
       Height          =   255
-      Left            =   1920
+      Left            =   3120
       TabIndex        =   14
-      Top             =   2520
+      Top             =   2880
       Width           =   1455
    End
    Begin VB.Label Label3 
       Caption         =   "MATERIAS"
-      Height          =   375
-      Left            =   4080
+      BeginProperty Font 
+         Name            =   "Century Gothic"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   5280
       TabIndex        =   13
-      Top             =   120
-      Width           =   1095
+      Top             =   480
+      Width           =   1815
    End
    Begin VB.Label Label4 
       Caption         =   "ID DE CARRERA"
       Height          =   255
-      Left            =   1920
+      Left            =   3120
       TabIndex        =   12
-      Top             =   3240
+      Top             =   3600
       Width           =   1455
    End
    Begin VB.Label Label6 
       Caption         =   "ID"
       Height          =   375
-      Left            =   1920
+      Left            =   3120
       TabIndex        =   11
-      Top             =   1080
+      Top             =   1440
       Width           =   1095
    End
 End
@@ -219,16 +228,29 @@ End Sub
 
 Private Sub Command4_Click()
 Adodc1.Recordset.AddNew
+Text1.Enabled = True
+Text1.SetFocus
 End Sub
 
 Private Sub Command5_Click()
-
 Adodc1.Recordset.Update
 frm_alumnos.Text1.Refresh
+Text1.Enabled = False
+Text2.Enabled = False
+Text3.Enabled = False
+Text5.Enabled = False
+Adodc1.Recordset.MoveLast
 End Sub
 
 Private Sub Command6_Click()
 Adodc1.Recordset.Delete
+
+frm_alumnos.Text1.Refresh
+Text1.Enabled = False
+Text2.Enabled = False
+Text3.Enabled = False
+Text5.Enabled = False
+Adodc1.Recordset.MoveLast
 End Sub
 
 Private Sub Command7_Click()
@@ -236,3 +258,29 @@ frm_materias.Hide
 frm_menu_principal.Show
 End Sub
 
+Private Sub Form_Load()
+Text1.Enabled = False
+Text2.Enabled = False
+Text3.Enabled = False
+Text5.Enabled = False
+End Sub
+
+Private Sub Text1_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 And Text1.Text <> Empty Then
+    Text2.Enabled = True
+    Text2.SetFocus
+End If
+End Sub
+
+Private Sub Text2_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 And Text2.Text <> Empty Then
+    Text3.Enabled = True
+    Text3.SetFocus
+End If
+End Sub
+
+Private Sub Text3_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 And Text1.Text <> Empty Then
+    Command5.SetFocus
+End If
+End Sub

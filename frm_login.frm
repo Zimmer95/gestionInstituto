@@ -1,49 +1,49 @@
 VERSION 5.00
 Begin VB.Form frm_login 
    Caption         =   "Login"
-   ClientHeight    =   4950
+   ClientHeight    =   8475
    ClientLeft      =   5025
    ClientTop       =   3120
-   ClientWidth     =   7590
+   ClientWidth     =   11985
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   4950
-   ScaleWidth      =   7590
+   ScaleHeight     =   8475
+   ScaleWidth      =   11985
    Begin VB.CommandButton Command1 
       Caption         =   "Inicial sesion"
       Height          =   495
-      Left            =   1680
+      Left            =   4080
       TabIndex        =   7
-      Top             =   3720
+      Top             =   5400
       Width           =   2295
    End
    Begin VB.CommandButton Command2 
       Caption         =   "Crear usuario"
       Height          =   495
-      Left            =   4200
+      Left            =   6600
       TabIndex        =   6
-      Top             =   3720
+      Top             =   5400
       Width           =   2295
    End
    Begin VB.TextBox Text2 
-      Height          =   615
-      Left            =   2760
+      Height          =   495
+      Left            =   5160
       TabIndex        =   1
-      Top             =   2400
+      Top             =   4080
       Width           =   2655
    End
    Begin VB.TextBox Text1 
-      Height          =   615
-      Left            =   2760
+      Height          =   495
+      Left            =   5160
       TabIndex        =   0
-      Top             =   1560
+      Top             =   3240
       Width           =   2655
    End
    Begin VB.Label Label3 
-      Caption         =   "Menu Principal"
+      Caption         =   "iniciar sesion"
       BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   11.25
+         Name            =   "Century Gothic"
+         Size            =   15.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -51,33 +51,33 @@ Begin VB.Form frm_login
          Strikethrough   =   0   'False
       EndProperty
       Height          =   375
-      Left            =   3120
+      Left            =   5400
       TabIndex        =   5
-      Top             =   480
-      Width           =   1815
+      Top             =   2160
+      Width           =   2175
    End
    Begin VB.Label Label4 
       Caption         =   "usuario: admin contraseña: admin"
       Height          =   615
-      Left            =   6240
+      Left            =   8640
       TabIndex        =   4
-      Top             =   1920
+      Top             =   3600
       Width           =   1215
    End
    Begin VB.Label Label2 
       Caption         =   "Contraseña"
       Height          =   375
-      Left            =   840
+      Left            =   3360
       TabIndex        =   3
-      Top             =   2520
+      Top             =   4200
       Width           =   1215
    End
    Begin VB.Label Label1 
       Caption         =   "Usuario"
       Height          =   255
-      Left            =   960
+      Left            =   3360
       TabIndex        =   2
-      Top             =   1680
+      Top             =   3360
       Width           =   855
    End
 End
